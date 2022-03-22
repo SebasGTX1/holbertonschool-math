@@ -11,8 +11,8 @@
 typedef struct c
 {
 
-	int re;
-	int im;
+	double re;
+	double im;
 }
 complex;
 

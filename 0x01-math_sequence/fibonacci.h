@@ -16,5 +16,6 @@ typedef struct list_s
 	struct list_s *next;
 } cell_t;
 
-t_cell *Fibonnaci(); double gold_number(t_cell *head);
+t_cell *Fibonnaci();
+double gold_number(t_cell *head);
 #endif

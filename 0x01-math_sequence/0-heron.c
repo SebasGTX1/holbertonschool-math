@@ -1,5 +1,24 @@
 #include "heron.h"
 /**
+ * _sqrt - aproximates to sqrt of n and returns it
+ * @x: number to calculate sqrt
+ * @y: aproximation to sqrt
+ * Return: sqrt of x
+ */
+double _sqrt(double number)
+{
+	double temp = 0, sqrt;
+
+	sqrt = number / 2;
+
+	while (sqrt != temp)
+	{
+		temp = sqrt;
+		sqrt = (number / temp + temp) / 2;
+	}
+	return (sqrt);
+}
+/**
  * _decimals - find the fake round for two doblue match
  * @elt: number to be check to the error
  * @p: b argument of the heron secuence
@@ -9,7 +28,7 @@
 int _decimals(double elt, double p)
 {
 	int i = 0;
-	double convergence = sqrt(p);
+	double convergence = _sqrt(p);
 
 	for (; i < 7; i++)
 	{

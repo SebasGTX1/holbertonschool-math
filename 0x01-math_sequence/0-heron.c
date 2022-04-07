@@ -10,7 +10,7 @@
 t_cell *add_end(t_cell **head, double p, double x0)
 {
 	t_cell *new_h;
-	double pUn = 0;
+	double pUn = 1;
 	double error = 1 / 10000000;
 
 	new_h = malloc(sizeof(t_cell));
@@ -29,9 +29,9 @@ t_cell *add_end(t_cell **head, double p, double x0)
 		pUn = (*head)->elt;
 	new_h->next = *head;
 	*head = new_h;
-	if ((pUn - new_h->elt) != error || new_h->elt == 1)
-		add_end(head, p, new_h->elt);
-	return (*head);
+	if (((pUn - new_h->elt) <= error) && pUn != 1)
+		return (*head);
+	return (add_end(head, p, new_h->elt));
 }
 /**
  * heron - funtion that returns the heron secuence

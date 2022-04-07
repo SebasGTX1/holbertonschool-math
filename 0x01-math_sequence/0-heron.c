@@ -1,5 +1,27 @@
 #include "heron.h"
 /**
+ * _decimals - find the fake round for two doblue match
+ * @elt: number to be check to the error
+ * @p: b argument of the heron secuence
+ * Return: 1 if the error if equal or less that 10^-7
+ * 0 if not
+ */
+int _decimals(double elt, double p)
+{
+	int i = 0;
+
+	convergence = sqrt(p);
+
+	for (; i < 7; i++)
+	{
+		if ((int) elt % 10 != (int) convergence % 10)
+			return (0);
+		elt *= 10, p *= 10;
+	}
+
+	return (1);
+}
+/**
  * add_node - adds a new node at the end of the list
  * @head: head of the linked list
  * @p: b parameter on the heron secuence
@@ -10,8 +32,6 @@
 t_cell *add_end(t_cell **head, double p, double x0)
 {
 	t_cell *new_h;
-	double pUn = 1;
-	double error = 0.000001;
 
 	new_h = malloc(sizeof(t_cell));
 	if (!new_h)
@@ -24,14 +44,11 @@ t_cell *add_end(t_cell **head, double p, double x0)
 		new_h->elt = x0;
 	else
 		new_h->elt = (0.5) * (x0 + (p / x0));
-
-	if (*head)
-		pUn = (*head)->elt;
 	new_h->next = *head;
 	*head = new_h;
-	if (((pUn - new_h->elt) <= error) && pUn != 1)
-		return (*head);
-	return (add_end(head, p, new_h->elt));
+	if ((_decimals(new_h->elt, p) == 0))
+		add_end(head, p, new_h->elt);
+	return (*head);
 }
 /**
  * heron - funtion that returns the heron secuence

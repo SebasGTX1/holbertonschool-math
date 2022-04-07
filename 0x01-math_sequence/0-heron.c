@@ -9,9 +9,7 @@
 int _decimals(double elt, double p)
 {
 	int i = 0;
-	double convergence;
-
-	convergence = sqrt(p);
+	double convergence = sqrt(p);
 
 	for (; i < 7; i++)
 	{

@@ -11,7 +11,7 @@ t_cell *add_end(t_cell **head, double p, double x0)
 {
 	t_cell *new_h;
 	double pUn = 1;
-	double error = 1 / 10000000;
+	double error = 0.000001;
 
 	new_h = malloc(sizeof(t_cell));
 	if (!new_h)

@@ -9,6 +9,7 @@
 int _decimals(double elt, double p)
 {
 	int i = 0;
+	double convergence;
 
 	convergence = sqrt(p);
 
@@ -16,7 +17,7 @@ int _decimals(double elt, double p)
 	{
 		if ((int) elt % 10 != (int) convergence % 10)
 			return (0);
-		elt *= 10, p *= 10;
+		elt *= 10, convergence *= 10;
 	}
 
 	return (1);

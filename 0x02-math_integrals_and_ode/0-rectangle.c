@@ -15,7 +15,7 @@ double rectangle_method(double a, double b, int steps)
 	while (i < steps)
 	{
 		x_step = a + i * m;
-		value += (1 / (1 + (x_step * x_step)));
+		value += f(x_step);
 		i++;
 	}
 	value *= m;

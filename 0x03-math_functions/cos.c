@@ -9,7 +9,7 @@ int main(void)
 	FILE *fp = NULL;
 	double x, y;
 
-	fp = fopen("cos(x).txt", "w");
+	fp = fopen("cos.txt", "w");
 	for (x = 0.0000; x <= 6 * M_PI; x = x + 0.001)
 	{
 		y = -(1) * sin(x);
